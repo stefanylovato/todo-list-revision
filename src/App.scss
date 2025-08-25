@@ -1,0 +1,125 @@
+// Reusable variables
+$primary-color: #007bff;
+$secondary-color: #00c4cc;
+$light-bg: #f9f9f9;
+$shadow-light: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+$shadow-medium: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+$border-radius: 0.625rem;
+$transition: all 0.3s ease;
+
+.App {
+  text-align: center;
+  margin: 1.5rem auto;
+  max-width: 90%;
+  background: $light-bg;
+  padding: 1.5rem;
+  border-radius: $border-radius;
+  box-shadow: $shadow-medium;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+
+  @media (max-width: 48rem) {
+    margin: 0.625rem;
+    padding: 0.625rem;
+  }
+
+  h1 {
+    margin-bottom: 1.25rem;
+    color: darken($primary-color, 10%);
+  }
+
+  form {
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 0.625rem;
+    width: 100%;
+    justify-content: center; 
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+      width: 80%;
+    }
+
+    input {
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 0.25rem;
+      outline: none;
+      transition: $transition;
+
+      &:focus {
+        border-color: $primary-color;
+      }
+    }
+
+    button {
+      padding: 0.5rem 0.9375rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
+      color: white;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        transform: scale(1.05);
+        background: linear-gradient(90deg, darken($primary-color, 20%), darken($secondary-color, 20%));
+      }
+
+      &:focus {
+        outline: 0.125rem solid $primary-color;
+      }
+    }
+  }
+
+  [role="filter"] {
+    margin: 0.9375rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+    width: 100%; 
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+      gap: 0.3125rem;
+    }
+
+    button {
+      margin: 0 0.3125rem;
+      flex-shrink: 0; /* prevents shrink */
+      padding: 0.5rem 0.9375rem;
+
+      @media (max-width: 48rem) {
+        width: 100%;
+        margin: 0.3125rem 0;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 25rem;
+    overflow-y: auto;
+    width: 100%;
+    text-align: left; 
+
+    @media (max-width: 48rem) {
+      width: 90%;
+    }
+  }
+
+  li {
+    margin: 0.625rem 0;
+    padding: 0.625rem;
+    background: white;
+    border-radius: 0.3125rem;
+    box-shadow: $shadow-light;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+}
